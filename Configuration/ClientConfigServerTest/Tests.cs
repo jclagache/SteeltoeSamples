@@ -9,10 +9,9 @@ namespace ClientConfigServerTest
     {
                 
         [Theory]
-        [InlineData("sampleclient1","profile1")]
-        [InlineData("sampleclient1","profile2")]
-        [InlineData("sampleclient2","profile1")]
-        [InlineData("sampleclient2","profile2")]
+        [InlineData("sampleclient","profile1")]
+        [InlineData("sampleclient","profile2")]
+        [InlineData("sampleclient","profile3")]
         public void TestPlaceholderResolving(string applicationName, string environment)
         {
             var settings = new ConfigServerClientSettings()
@@ -23,7 +22,7 @@ namespace ClientConfigServerTest
             };
             var builder = new ConfigurationBuilder().AddConfigServer(settings);
             var config = builder.Build().AddPlaceholderResolver();
-            Assert.Equal($"foo_bar_{environment}", config["title"]);
+            Assert.Equal("foo_bar", config["title"]);
         }
     }
 }

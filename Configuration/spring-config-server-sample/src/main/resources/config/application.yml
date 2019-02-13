@@ -1,9 +1,11 @@
 spring:
   profiles: profile1
-foo:
-  bar: foo_bar_profile1
+title: ${foo:bar}
 ---
 spring:
   profiles: profile2
-foo:
-  bar: foo_bar_profile2
+title: ${foo[bar]}
+---
+spring:
+  profiles: profile3
+title: ${foo.bar}
