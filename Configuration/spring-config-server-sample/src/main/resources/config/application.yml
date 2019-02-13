@@ -1,0 +1,9 @@
+spring:
+  profiles: profile1
+foo:
+  bar: foo_bar_profile1
+---
+spring:
+  profiles: profile2
+foo:
+  bar: foo_bar_profile2
